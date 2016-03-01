@@ -70,6 +70,8 @@ INSERT INTO datasourcetype VALUES ('google', 10);
 INSERT INTO datasourcetype VALUES ('document', 11);
 INSERT INTO datasourcetype VALUES ('arcgiscache', 12);
 INSERT INTO datasourcetype VALUES ('gpx', 13);
+INSERT INTO datasourcetype VALUES ('bing', 14);
+INSERT INTO datasourcetype VALUES ('geojson', 15);
 
 
 --

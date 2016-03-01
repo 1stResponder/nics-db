@@ -312,7 +312,8 @@ CREATE TABLE datalayer (
     datalayersourceid character varying(255) NOT NULL,
     displayname character varying(256) NOT NULL,
     globalview boolean NOT NULL,
-    usersessionid integer NOT NULL
+    usersessionid integer NOT NULL,
+    legend character varying(256)
 );
 
 
@@ -591,6 +592,7 @@ CREATE TABLE folder (
 
 ALTER TABLE folder OWNER TO nics;
 
+
 --
 -- Name: form; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
@@ -623,6 +625,35 @@ CREATE SEQUENCE form_seq
 
 
 ALTER TABLE form_seq OWNER TO nics;
+
+--
+-- Name: uxoreport_seq; Type: SEQUENCE; Schema: public; Owner: nics
+--
+
+CREATE SEQUENCE uxoreport_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER TABLE uxoreport_seq OWNER TO nics;
+
+--
+-- Name: uxoreport; Type: TABLE: Schema: public: Owner: nics;
+--
+CREATE TABLE uxoreport (
+    uxoreportid bigint DEFAULT nextval('uxoreport_seq'::regclass) NOT NULL,
+    incidentid integer NOT NULL,
+    message text NOT NULL,
+    lat double precision NOT NULL,
+    lon double precision not null,
+  CONSTRAINT pk_uxoreport primary key (uxoreportid),
+  CONSTRAINT fk_incident foreign key (incidentid)
+    references incident (incidentid) match simple
+);
+
+ALTER TABLE uxoreport OWNER TO nics;
 
 --
 -- Name: formtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 

@@ -38,7 +38,7 @@ fi
 # now create weather layers
 #psql -c "COPY folder FROM '${PWD}/folders.sql'" $1
 #psql -c "COPY rootfolder FROM '${PWD}/root_folders.sql'" $1
-#psql -c "COPY folder FROM '${PWD}/weather_folders.sql'" $1
+psql -c "COPY folder FROM '${PWD}/weather_folders.sql'" $1
 psql -c "COPY datasource FROM '${PWD}/weather_datasource.sql'" $1
 psql -c "COPY datalayersource FROM '${PWD}/weather_datalayersource.sql'" $1
 psql -c "COPY datalayer FROM '${PWD}/weather_datalayer.sql'" $1

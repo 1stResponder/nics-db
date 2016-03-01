@@ -30,6 +30,9 @@
     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
+<!-- (c) Copyright, 2008-2014 Massachusetts Institute of Technology. This 
+	material may be reproduced by or for the U.S. Government pursuant to the 
+	copyright license under the clause at DFARS 252.227-7013 (June, 1995). -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
@@ -38,7 +41,7 @@
 	<!-- Maven artifact details -->
 	<groupId>edu.mit.ll.nics.db</groupId>
 	<artifactId>nics-db</artifactId>
-	<version>6.1</version>
+	<version>6.1.1</version>
 	<packaging>pom</packaging>
 
 	<!-- Project information -->
@@ -47,7 +50,6 @@
 
 
 	<properties>
-                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<license.plugin.version>1.9.0</license.plugin.version>
 	</properties>
 
@@ -75,35 +77,10 @@
                             <xslt>XML_STYLE</xslt>
                         </mapping>
 
-                        <excludes>
-                            <!-- Some default excludes -->
-                            <exclude>**/*~</exclude>
-                            <exclude>**/*.jar</exclude>
-                            <exclude>**/*.zip</exclude>
-                            <exclude>**/*.tar*</exclude>
-                            <exclude>**/*.pdf</exclude>
-                            <exclude>**/*.jpg</exclude>
-                            <exclude>**/*.png</exclude>
-                            <exclude>**/*.gif</exclude>
-                            <exclude>**/*.ico</exclude>
-                            <exclude>**/*.bmp</exclude>
-                            <exclude>**/*.tif*</exclude>
-                            <exclude>**/*.cr2</exclude>
-                            <exclude>**/MANIFEST.MF</exclude>
-                            <exclude>**/.classpath</exclude>
-                            <exclude>**/.project</exclude>
-                            <exclude>**/.settings/**</exclude>
-                            <exclude>**/target/**</exclude>
-                            <exclude>**/test-output/**</exclude>
-			    			<exclude>**/META-INF/services/**</exclude>
-                            <exclude>**/.git</exclude>
-                            <exclude>**/.gitignore</exclude>
-                            <exclude>**/.git/**</exclude>
-                            <exclude>**/*.log</exclude>
-                            <exclude>**/*.txt</exclude>
-
-                            <!-- Project-specific excludes -->
-                        </excludes>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.sh</include>
+                        </includes>
                     </configuration>
                     <inherited>false</inherited>
                     <executions>
