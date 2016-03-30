@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
+-- Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -392,7 +392,9 @@ CREATE TABLE datasource (
     externalurl character varying(256),
     internalurl character varying(256) NOT NULL,
     datasourcetypeid integer,
-    displayname character varying(256)
+    displayname character varying(256),
+    username character varying(64),
+    password character varying(64)
 );
 
 
