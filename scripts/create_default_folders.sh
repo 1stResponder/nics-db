@@ -29,34 +29,41 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+
+
 set -e;
 
 if [ "$1" == "" ]
 then
-  echo "You must specify a database name to create and populate."
+  echo "You must specify a database name to prepend to the data databases."
   exit 1
 fi
 
 if [ "$2" == "" ]
 then
-  echo "You must specify a database user to create the schema with."
+  echo "You must specify a workspace id that these folders will be created under."
   exit 1
 fi
 
+# If uuidgen isn't available on your system, then you'll have to manually fill in these values each run.
+# You can also get them in psql by performing the following:
+# 	1) psql> create extension if not exists "uuid-ossp";
+#   2) psql> select uuid_generate_v4();
+#
+MAPS=$(uuidgen);
+DATA=$(uuidgen);
+WEATHER=$(uuidgen);
+TRACKING=$(uuidgen);
+UPLOAD=$(uuidgen);
 
-# create the database
-psql -c "create database $1"
+# For workspace 1, the Incident workspace
+psql -c "INSERT INTO folder(folderid,foldername,workspaceid) VALUES ('$MAPS','Maps',$2)" $1
+psql -c "INSERT INTO folder(folderid,foldername,workspaceid) VALUES ('$DATA','Data',$2)" $1
+psql -c "INSERT INTO folder(folderid,foldername,workspaceid) VALUES ('$WEATHER','Weather',$2)" $1
+psql -c "INSERT INTO folder(folderid,foldername,workspaceid) VALUES ('$TRACKING','Tracking',$2)" $1
+psql -c "INSERT INTO folder(folderid,foldername,parentfolderid,index,workspaceid) VALUES ('$UPLOAD','Upload','$DATA',0,$2)" $1
 
-# check postgis extensions
-psql -c "CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;" -d "$1"
-psql -c "COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language'" -d "$1"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1"
-psql -c "COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions'" -d "$1"
-
-# now create baseline schema and insert baseline data
-psql -f baseline.sql "$1" "$2"
-psql -f baseline_data.sql "$1" "$2"
-
-# now execute incremental change scripts with:
-# psql -f <script_name> "$1"
-
+psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES ((select nextval('hibernate_sequence')),'$MAPS','Maps',$2)" $1
+psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES ((select nextval('hibernate_sequence')),'$DATA','Data',$2)" $1
+psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES ((select nextval('hibernate_sequence')),'$WEATHER','Weather',$2)" $1
+psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES ((select nextval('hibernate_sequence')),'$TRACKING','Tracking',$2)" $1

@@ -29,8 +29,15 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+set -e;
 
 if [ "$1" == "" ]
+then
+  echo "You must specify a database name to prepend to the data databases."
+  exit 1
+fi
+
+if [ "$2" == "" ]
 then
   echo "You must specify a name for the organization"
   exit 1
@@ -44,13 +51,25 @@ fi
 
 if [ "$4" == "" ]
 then
+  echo "You must specify a county. If it doesn't apply, use ''."
+  exit 1
+fi
+
+if [ "$5" == "" ]
+then
   echo "You must specify a prefix for the organization"
+  exit 1
+fi
+
+if [ "$6" == "" ]
+then
+  echo "You must specify an orgtypeid, this can be found in the orgtype table"
   exit 1
 fi
 
 # create the org
 # name, county, state, prefix, orgtypeid
-psql -c "INSERT INTO org VALUES ((select nextval('org_seq')), '$1', '$2', '$3', NULL, '$4', NULL, 38.8950000000000031, -77.0366700000000009, NULL, 'USA', now())" nics
-psql -c "INSERT INTO org_orgtype VALUES ((select nextval('hibernate_sequence')), (select last_value from org_seq), $5)" nics
+psql -c "INSERT INTO org VALUES ((select nextval('org_seq')), '$2', '$3', '$4', NULL, '$5', NULL, 38.8950000000000031, -77.0366700000000009, NULL, 'USA', now())" $1
+psql -c "INSERT INTO org_orgtype VALUES ((select nextval('hibernate_sequence')), (select last_value from org_seq), $6)" $1
 
 

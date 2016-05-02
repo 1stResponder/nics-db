@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
@@ -29,34 +28,27 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-set -e;
-
 if [ "$1" == "" ]
 then
-  echo "You must specify a database name to create and populate."
+  echo "You must specify a database."
   exit 1
 fi
 
 if [ "$2" == "" ]
 then
-  echo "You must specify a database user to create the schema with."
+  echo "You must specify a workspace id"
   exit 1
 fi
 
 
-# create the database
-psql -c "create database $1"
+if [ "$3" == "" ]
+then
+  echo "You must specify a workspace name"
+  exit 1
+fi
 
-# check postgis extensions
-psql -c "CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;" -d "$1"
-psql -c "COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language'" -d "$1"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1"
-psql -c "COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions'" -d "$1"
+psql -c "INSERT INTO workspace VALUES ($2, '$3', true)" $1
 
-# now create baseline schema and insert baseline data
-psql -f baseline.sql "$1" "$2"
-psql -f baseline_data.sql "$1" "$2"
-
-# now execute incremental change scripts with:
-# psql -f <script_name> "$1"
-
+echo "Result:"
+psql -c "select * from workspace where workspaceid=$2" $1
+echo ""

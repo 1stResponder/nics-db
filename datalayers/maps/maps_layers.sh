@@ -35,5 +35,5 @@ then
   exit 1
 fi
 
-# now create map layers
+# create map layers
 psql -f maps_layers.sql "$1"
