@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+-- Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -74,7 +74,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: assignment; Type: TABLE; Schema: public; Tablespace: 
+-- Name: assignment; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE assignment (
@@ -84,9 +84,10 @@ CREATE TABLE assignment (
 );
 
 
+ALTER TABLE assignment OWNER TO nics;
 
 --
--- Name: chat; Type: TABLE; Schema: public; Tablespace: 
+-- Name: chat; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE chat (
@@ -99,9 +100,10 @@ CREATE TABLE chat (
 );
 
 
+ALTER TABLE chat OWNER TO nics;
 
 --
--- Name: chat_seq; Type: SEQUENCE; Schema: public;
+-- Name: chat_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE chat_seq
@@ -112,9 +114,10 @@ CREATE SEQUENCE chat_seq
     CACHE 1;
 
 
+ALTER TABLE chat_seq OWNER TO nics;
 
 --
--- Name: collab_room_seq; Type: SEQUENCE; Schema: public;
+-- Name: collab_room_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE collab_room_seq
@@ -125,9 +128,10 @@ CREATE SEQUENCE collab_room_seq
     CACHE 1;
 
 
+ALTER TABLE collab_room_seq OWNER TO nics;
 
 --
--- Name: collabroom; Type: TABLE; Schema: public; Tablespace: 
+-- Name: collabroom; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE collabroom (
@@ -143,9 +147,10 @@ CREATE TABLE collabroom (
 );
 
 
+ALTER TABLE collabroom OWNER TO nics;
 
 --
--- Name: collabroompermission; Type: TABLE; Schema: public; Tablespace: 
+-- Name: collabroompermission; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE collabroompermission (
@@ -156,9 +161,10 @@ CREATE TABLE collabroompermission (
 );
 
 
+ALTER TABLE collabroompermission OWNER TO nics;
 
 --
--- Name: collabroom_permission_seq; Type: SEQUENCE; Schema: public;
+-- Name: collabroom_permission_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE collabroom_permission_seq
@@ -169,16 +175,17 @@ CREATE SEQUENCE collabroom_permission_seq
     CACHE 1;
 
 
+ALTER TABLE collabroom_permission_seq OWNER TO nics;
 
 --
--- Name: collabroom_permission_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: collabroom_permission_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE collabroom_permission_seq OWNED BY collabroompermission.collabroompermissionid;
 
 
 --
--- Name: collabroomfeature; Type: TABLE; Schema: public; Tablespace: 
+-- Name: collabroomfeature; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE collabroomfeature (
@@ -189,9 +196,10 @@ CREATE TABLE collabroomfeature (
 );
 
 
+ALTER TABLE collabroomfeature OWNER TO nics;
 
 --
--- Name: collabroomfeature_collabroomfeatureid_seq; Type: SEQUENCE; Schema: public;
+-- Name: collabroomfeature_collabroomfeatureid_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE collabroomfeature_collabroomfeatureid_seq
@@ -202,16 +210,16 @@ CREATE SEQUENCE collabroomfeature_collabroomfeatureid_seq
     CACHE 1;
 
 
+ALTER TABLE collabroomfeature_collabroomfeatureid_seq OWNER TO nics;
 
 --
--- Name: collabroomfeature_collabroomfeatureid_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: collabroomfeature_collabroomfeatureid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE collabroomfeature_collabroomfeatureid_seq OWNED BY collabroomfeature.collabroomfeatureid;
 
-
 --
--- Name: contact; Type: TABLE; Schema: public; Tablespace: 
+-- Name: contact; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE contact (
@@ -225,8 +233,10 @@ CREATE TABLE contact (
 );
 
 
+ALTER TABLE contact OWNER TO nics;
+
 --
--- Name: contact_seq; Type: SEQUENCE; Schema: public;
+-- Name: contact_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE contact_seq
@@ -237,8 +247,10 @@ CREATE SEQUENCE contact_seq
     CACHE 1;
 
 
+ALTER TABLE contact_seq OWNER TO nics;
+
 --
--- Name: contacttype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: contacttype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE contacttype (
@@ -247,8 +259,10 @@ CREATE TABLE contacttype (
 );
 
 
+ALTER TABLE contacttype OWNER TO nics;
+
 --
--- Name: currentusersession; Type: TABLE; Schema: public; Tablespace: 
+-- Name: currentusersession; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE currentusersession (
@@ -263,8 +277,10 @@ CREATE TABLE currentusersession (
 );
 
 
+ALTER TABLE currentusersession OWNER TO nics;
+
 --
--- Name: current_user_session_seq; Type: SEQUENCE; Schema: public;
+-- Name: current_user_session_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE current_user_session_seq
@@ -275,15 +291,17 @@ CREATE SEQUENCE current_user_session_seq
     CACHE 1;
 
 
+ALTER TABLE current_user_session_seq OWNER TO nics;
+
 --
--- Name: current_user_session_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: current_user_session_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE current_user_session_seq OWNED BY currentusersession.currentusersessionid;
 
 
 --
--- Name: datalayer; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datalayer; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datalayer (
@@ -298,8 +316,10 @@ CREATE TABLE datalayer (
 );
 
 
+ALTER TABLE datalayer OWNER TO nics;
+
 --
--- Name: datalayerfolder; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datalayerfolder; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datalayerfolder (
@@ -310,8 +330,10 @@ CREATE TABLE datalayerfolder (
 );
 
 
+ALTER TABLE datalayerfolder OWNER TO nics;
+
 --
--- Name: datalayerfolder_workspace; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datalayerfolder_workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datalayerfolder_workspace (
@@ -321,9 +343,10 @@ CREATE TABLE datalayerfolder_workspace (
 );
 
 
+ALTER TABLE datalayerfolder_workspace OWNER TO nics;
 
 --
--- Name: datalayersource; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datalayersource; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datalayersource (
@@ -343,9 +366,10 @@ CREATE TABLE datalayersource (
 );
 
 
+ALTER TABLE datalayersource OWNER TO nics;
 
 --
--- Name: datalayerstyle; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datalayerstyle; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datalayerstyle (
@@ -356,8 +380,10 @@ CREATE TABLE datalayerstyle (
 );
 
 
+ALTER TABLE datalayerstyle OWNER TO nics;
+
 --
--- Name: datasource; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datasource; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datasource (
@@ -365,15 +391,14 @@ CREATE TABLE datasource (
     externalurl character varying(256),
     internalurl character varying(256) NOT NULL,
     datasourcetypeid integer,
-    displayname character varying(256),
-    username character varying(64),
-    password character varying(64)
+    displayname character varying(256)
 );
 
 
+ALTER TABLE datasource OWNER TO nics;
 
 --
--- Name: datasourcetype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: datasourcetype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE datasourcetype (
@@ -382,9 +407,10 @@ CREATE TABLE datasourcetype (
 );
 
 
+ALTER TABLE datasourcetype OWNER TO nics;
 
 --
--- Name: document; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document (
@@ -401,9 +427,10 @@ CREATE TABLE document (
 );
 
 
+ALTER TABLE document OWNER TO nics;
 
 --
--- Name: document_collabroom; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document_collabroom; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document_collabroom (
@@ -413,9 +440,10 @@ CREATE TABLE document_collabroom (
 );
 
 
+ALTER TABLE document_collabroom OWNER TO nics;
 
 --
--- Name: document_feature; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document_feature; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document_feature (
@@ -425,9 +453,10 @@ CREATE TABLE document_feature (
 );
 
 
+ALTER TABLE document_feature OWNER TO nics;
 
 --
--- Name: document_feature_document_featureid_seq; Type: SEQUENCE; Schema: public;
+-- Name: document_feature_document_featureid_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE document_feature_document_featureid_seq
@@ -438,15 +467,17 @@ CREATE SEQUENCE document_feature_document_featureid_seq
     CACHE 1;
 
 
+ALTER TABLE document_feature_document_featureid_seq OWNER TO nics;
+
 --
--- Name: document_feature_document_featureid_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: document_feature_document_featureid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE document_feature_document_featureid_seq OWNED BY document_feature.document_featureid;
 
 
 --
--- Name: document_incident; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document_incident; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document_incident (
@@ -456,9 +487,10 @@ CREATE TABLE document_incident (
 );
 
 
+ALTER TABLE document_incident OWNER TO nics;
 
 --
--- Name: document_org; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document_org; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document_org (
@@ -468,9 +500,10 @@ CREATE TABLE document_org (
 );
 
 
+ALTER TABLE document_org OWNER TO nics;
 
 --
--- Name: document_user; Type: TABLE; Schema: public; Tablespace: 
+-- Name: document_user; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE document_user (
@@ -480,9 +513,10 @@ CREATE TABLE document_user (
 );
 
 
+ALTER TABLE document_user OWNER TO nics;
 
 --
--- Name: feature; Type: TABLE; Schema: public; Tablespace: 
+-- Name: feature; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE feature (
@@ -519,9 +553,10 @@ CREATE TABLE feature (
 );
 
 
+ALTER TABLE feature OWNER TO nics;
 
 --
--- Name: feature_featureid_seq; Type: SEQUENCE; Schema: public;
+-- Name: feature_featureid_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE feature_featureid_seq
@@ -532,15 +567,17 @@ CREATE SEQUENCE feature_featureid_seq
     CACHE 1;
 
 
+ALTER TABLE feature_featureid_seq OWNER TO nics;
+
 --
--- Name: feature_featureid_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: feature_featureid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE feature_featureid_seq OWNED BY feature.featureid;
 
 
 --
--- Name: folder; Type: TABLE; Schema: public; Tablespace: 
+-- Name: folder; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE folder (
@@ -552,10 +589,11 @@ CREATE TABLE folder (
 );
 
 
+ALTER TABLE folder OWNER TO nics;
 
 
 --
--- Name: form; Type: TABLE; Schema: public; Tablespace: 
+-- Name: form; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE form (
@@ -571,9 +609,23 @@ CREATE TABLE form (
 );
 
 
+ALTER TABLE form OWNER TO nics;
+
+CREATE SEQUENCE formid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE formid_seq OWNER TO nics;
+
+ALTER SEQUENCE formid_seq OWNED BY form.formid;
+
+ALTER TABLE ONLY form ALTER COLUMN formid SET DEFAULT nextval('formid_seq'::regclass);
 
 --
--- Name: form_seq; Type: SEQUENCE; Schema: public;
+-- Name: form_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE form_seq
@@ -584,8 +636,39 @@ CREATE SEQUENCE form_seq
     CACHE 1;
 
 
+ALTER TABLE form_seq OWNER TO nics;
+
 --
--- Name: formtype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: uxoreport_seq; Type: SEQUENCE; Schema: public; Owner: nics
+--
+
+CREATE SEQUENCE uxoreport_seq
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
+
+ALTER TABLE uxoreport_seq OWNER TO nics;
+
+--
+-- Name: uxoreport; Type: TABLE: Schema: public: Owner: nics;
+--
+CREATE TABLE uxoreport (
+    uxoreportid bigint DEFAULT nextval('uxoreport_seq'::regclass) NOT NULL,
+    incidentid integer NOT NULL,
+    message text NOT NULL,
+    lat double precision NOT NULL,
+    lon double precision not null,
+  CONSTRAINT pk_uxoreport primary key (uxoreportid),
+  CONSTRAINT fk_incident foreign key (incidentid)
+    references incident (incidentid) match simple
+);
+
+ALTER TABLE uxoreport OWNER TO nics;
+
+--
+-- Name: formtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE formtype (
@@ -594,9 +677,10 @@ CREATE TABLE formtype (
 );
 
 
+ALTER TABLE formtype OWNER TO nics;
 
 --
--- Name: gisparametertype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: gisparametertype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE gisparametertype (
@@ -605,9 +689,10 @@ CREATE TABLE gisparametertype (
 );
 
 
+ALTER TABLE gisparametertype OWNER TO nics;
 
 --
--- Name: hibernate_sequence; Type: SEQUENCE; Schema: public;
+-- Name: hibernate_sequence; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE hibernate_sequence
@@ -618,9 +703,10 @@ CREATE SEQUENCE hibernate_sequence
     CACHE 1;
 
 
+ALTER TABLE hibernate_sequence OWNER TO nics;
 
 --
--- Name: ics_position; Type: TABLE; Schema: public; Tablespace: 
+-- Name: ics_position; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE ics_position (
@@ -631,9 +717,10 @@ CREATE TABLE ics_position (
 );
 
 
+ALTER TABLE ics_position OWNER TO nics;
 
 --
--- Name: image_seq; Type: SEQUENCE; Schema: public;
+-- Name: image_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE image_seq
@@ -644,9 +731,10 @@ CREATE SEQUENCE image_seq
     CACHE 1;
 
 
+ALTER TABLE image_seq OWNER TO nics;
 
 --
--- Name: image; Type: TABLE; Schema: public; Tablespace: 
+-- Name: image; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE image (
@@ -657,9 +745,10 @@ CREATE TABLE image (
 );
 
 
+ALTER TABLE image OWNER TO nics;
 
 --
--- Name: incident; Type: TABLE; Schema: public; Tablespace: 
+-- Name: incident; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE incident (
@@ -682,9 +771,10 @@ CREATE TABLE incident (
 );
 
 
+ALTER TABLE incident OWNER TO nics;
 
 --
--- Name: incident_incidenttype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: incident_incidenttype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE incident_incidenttype (
@@ -694,9 +784,10 @@ CREATE TABLE incident_incidenttype (
 );
 
 
+ALTER TABLE incident_incidenttype OWNER TO nics;
 
 --
--- Name: incident_incidenttype_seq; Type: SEQUENCE; Schema: public;
+-- Name: incident_incidenttype_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE incident_incidenttype_seq
@@ -707,16 +798,17 @@ CREATE SEQUENCE incident_incidenttype_seq
     CACHE 1;
 
 
+ALTER TABLE incident_incidenttype_seq OWNER TO nics;
 
 --
--- Name: incident_incidenttype_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: incident_incidenttype_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE incident_incidenttype_seq OWNED BY incident_incidenttype.incident_incidenttypeid;
 
 
 --
--- Name: incident_seq; Type: SEQUENCE; Schema: public;
+-- Name: incident_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE incident_seq
@@ -727,16 +819,17 @@ CREATE SEQUENCE incident_seq
     CACHE 1;
 
 
+ALTER TABLE incident_seq OWNER TO nics;
 
 --
--- Name: incident_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: incident_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE incident_seq OWNED BY incident.incidentid;
 
 
 --
--- Name: incidenttype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: incidenttype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE incidenttype (
@@ -745,9 +838,10 @@ CREATE TABLE incidenttype (
 );
 
 
+ALTER TABLE incidenttype OWNER TO nics;
 
 --
--- Name: location_seq; Type: SEQUENCE; Schema: public;
+-- Name: location_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE location_seq
@@ -758,9 +852,10 @@ CREATE SEQUENCE location_seq
     CACHE 1;
 
 
+ALTER TABLE location_seq OWNER TO nics;
 
 --
--- Name: location; Type: TABLE; Schema: public; Tablespace: 
+-- Name: location; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE location (
@@ -778,9 +873,10 @@ CREATE TABLE location (
 );
 
 
+ALTER TABLE location OWNER TO nics;
 
 --
--- Name: log; Type: TABLE; Schema: public; Tablespace: 
+-- Name: log; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE log (
@@ -789,14 +885,14 @@ CREATE TABLE log (
     usersessionid integer,
     message text,
     created timestamp without time zone DEFAULT now() NOT NULL,
-    status integer,
-    workspaceid integer
+    status integer
 );
 
 
+ALTER TABLE log OWNER TO nics;
 
 --
--- Name: log_seq; Type: SEQUENCE; Schema: public;
+-- Name: log_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE log_seq
@@ -807,6 +903,20 @@ CREATE SEQUENCE log_seq
     CACHE 1;
 
 
+ALTER TABLE log_seq OWNER TO nics;
+
+--
+-- Name: log_workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
+--
+
+CREATE TABLE log_workspace (
+    workspaceid integer NOT NULL,
+    logid integer NOT NULL,
+    log_workspace_id integer NOT NULL
+);
+
+
+ALTER TABLE log_workspace OWNER TO nics;
 
 --
 -- Name: logtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
@@ -818,9 +928,10 @@ CREATE TABLE logtype (
 );
 
 
+ALTER TABLE logtype OWNER TO nics;
 
 --
--- Name: message_archive_seq; Type: SEQUENCE; Schema: public;
+-- Name: message_archive_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE message_archive_seq
@@ -831,8 +942,10 @@ CREATE SEQUENCE message_archive_seq
     CACHE 1;
 
 
+ALTER TABLE message_archive_seq OWNER TO nics;
+
 --
--- Name: message_sequence; Type: SEQUENCE; Schema: public;
+-- Name: message_sequence; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE message_sequence
@@ -844,9 +957,10 @@ CREATE SEQUENCE message_sequence
     CYCLE;
 
 
+ALTER TABLE message_sequence OWNER TO nics;
 
 --
--- Name: messagearchive; Type: TABLE; Schema: public; Tablespace: 
+-- Name: messagearchive; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE messagearchive (
@@ -862,8 +976,10 @@ CREATE TABLE messagearchive (
 );
 
 
+ALTER TABLE messagearchive OWNER TO nics;
+
 --
--- Name: messagepermissions; Type: TABLE; Schema: public; Tablespace: 
+-- Name: messagepermissions; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE messagepermissions (
@@ -872,9 +988,10 @@ CREATE TABLE messagepermissions (
 );
 
 
+ALTER TABLE messagepermissions OWNER TO nics;
 
 --
--- Name: nicssystem; Type: TABLE; Schema: public; Tablespace: 
+-- Name: nicssystem; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE nicssystem (
@@ -885,9 +1002,10 @@ CREATE TABLE nicssystem (
 );
 
 
+ALTER TABLE nicssystem OWNER TO nics;
 
 --
--- Name: operational_period_seq; Type: SEQUENCE; Schema: public;
+-- Name: operational_period_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE operational_period_seq
@@ -898,9 +1016,10 @@ CREATE SEQUENCE operational_period_seq
     CACHE 1;
 
 
+ALTER TABLE operational_period_seq OWNER TO nics;
 
 --
--- Name: operational_period; Type: TABLE; Schema: public; Tablespace: 
+-- Name: operational_period; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE operational_period (
@@ -911,9 +1030,10 @@ CREATE TABLE operational_period (
 );
 
 
+ALTER TABLE operational_period OWNER TO nics;
 
 --
--- Name: options; Type: TABLE; Schema: public; Tablespace: 
+-- Name: options; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE options (
@@ -932,9 +1052,10 @@ CREATE TABLE options (
 );
 
 
+ALTER TABLE options OWNER TO nics;
 
 --
--- Name: org; Type: TABLE; Schema: public; Tablespace: 
+-- Name: org; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE org (
@@ -953,9 +1074,10 @@ CREATE TABLE org (
 );
 
 
+ALTER TABLE org OWNER TO nics;
 
 --
--- Name: org_formtype_seq; Type: SEQUENCE; Schema: public;
+-- Name: org_formtype_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE org_formtype_seq
@@ -966,9 +1088,10 @@ CREATE SEQUENCE org_formtype_seq
     CACHE 1;
 
 
+ALTER TABLE org_formtype_seq OWNER TO nics;
 
 --
--- Name: org_orgtype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: org_orgtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE org_orgtype (
@@ -978,9 +1101,10 @@ CREATE TABLE org_orgtype (
 );
 
 
+ALTER TABLE org_orgtype OWNER TO nics;
 
 --
--- Name: org_seq; Type: SEQUENCE; Schema: public;
+-- Name: org_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE org_seq
@@ -991,21 +1115,37 @@ CREATE SEQUENCE org_seq
     CACHE 1;
 
 
+ALTER TABLE org_seq OWNER TO nics;
 
 --
--- Name: orgfolder; Type: TABLE; Schema: public; Tablespace: 
+-- Name: orgfolder; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE orgfolder (
     orgfolderid integer NOT NULL,
     orgid integer NOT NULL,
-    folderid character varying(250) NOT NULL
+    folderid character varying(250) NOT NULL,
+    PRIMARY KEY(orgfolderid)
 );
 
 
+ALTER TABLE orgfolder OWNER TO nics;
+
+CREATE SEQUENCE orgfolderid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE orgfolderid_seq OWNER TO nics;
+
+ALTER SEQUENCE orgfolderid_seq OWNED BY orgfolder.orgfolderid;
+
+ALTER TABLE ONLY orgfolder ALTER COLUMN orgfolderid SET DEFAULT nextval('orgfolderid_seq'::regclass);
 
 --
--- Name: orgformtype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: orgformtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE orgformtype (
@@ -1015,9 +1155,10 @@ CREATE TABLE orgformtype (
 );
 
 
+ALTER TABLE orgformtype OWNER TO nics;
 
 --
--- Name: orgtype; Type: TABLE; Schema: public; Tablespace: 
+-- Name: orgtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE orgtype (
@@ -1026,9 +1167,10 @@ CREATE TABLE orgtype (
 );
 
 
+ALTER TABLE orgtype OWNER TO nics;
 
 --
--- Name: resource_assign_seq; Type: SEQUENCE; Schema: public;
+-- Name: resource_assign_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE resource_assign_seq
@@ -1039,9 +1181,10 @@ CREATE SEQUENCE resource_assign_seq
     CACHE 1;
 
 
+ALTER TABLE resource_assign_seq OWNER TO nics;
 
 --
--- Name: resource_assign; Type: TABLE; Schema: public; Tablespace: 
+-- Name: resource_assign; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE resource_assign (
@@ -1053,9 +1196,10 @@ CREATE TABLE resource_assign (
 );
 
 
+ALTER TABLE resource_assign OWNER TO nics;
 
 --
--- Name: rootfolder; Type: TABLE; Schema: public; Tablespace: 
+-- Name: rootfolder; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE rootfolder (
@@ -1066,9 +1210,10 @@ CREATE TABLE rootfolder (
 );
 
 
+ALTER TABLE rootfolder OWNER TO nics;
 
 --
--- Name: seq; Type: TABLE; Schema: public; Tablespace: 
+-- Name: seq; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE seq (
@@ -1077,20 +1222,37 @@ CREATE TABLE seq (
 );
 
 
+ALTER TABLE seq OWNER TO nics;
+
 --
--- Name: system_workspace; Type: TABLE; Schema: public; Tablespace: 
+-- Name: system_workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE system_workspace (
     system_workspace_id integer NOT NULL,
     systemid integer NOT NULL,
-    workspaceid integer NOT NULL
+    workspaceid integer NOT NULL,
+    PRIMARY KEY(system_workspace_id)
 );
 
 
+ALTER TABLE system_workspace OWNER TO nics;
+
+CREATE SEQUENCE system_workspace_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE system_workspace_id_seq OWNER TO nics;
+
+ALTER SEQUENCE system_workspace_id_seq OWNED BY system_workspace.system_workspace_id;
+
+ALTER TABLE ONLY system_workspace ALTER COLUMN system_workspace_id SET DEFAULT nextval('system_workspace_id_seq'::regclass);
 
 --
--- Name: systemrole; Type: TABLE; Schema: public; Tablespace: 
+-- Name: systemrole; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE systemrole (
@@ -1099,9 +1261,10 @@ CREATE TABLE systemrole (
 );
 
 
+ALTER TABLE systemrole OWNER TO nics;
 
 --
--- Name: systemrole_workspace; Type: TABLE; Schema: public; Tablespace: 
+-- Name: systemrole_workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE systemrole_workspace (
@@ -1112,9 +1275,10 @@ CREATE TABLE systemrole_workspace (
 );
 
 
+ALTER TABLE systemrole_workspace OWNER TO nics;
 
 --
--- Name: task_assign_seq; Type: SEQUENCE; Schema: public;
+-- Name: task_assign_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE task_assign_seq
@@ -1125,9 +1289,10 @@ CREATE SEQUENCE task_assign_seq
     CACHE 1;
 
 
+ALTER TABLE task_assign_seq OWNER TO nics;
 
 --
--- Name: task_assign; Type: TABLE; Schema: public; Tablespace: 
+-- Name: task_assign; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE task_assign (
@@ -1139,8 +1304,10 @@ CREATE TABLE task_assign (
 );
 
 
+ALTER TABLE task_assign OWNER TO nics;
+
 --
--- Name: unit_seq; Type: SEQUENCE; Schema: public;
+-- Name: unit_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE unit_seq
@@ -1151,9 +1318,10 @@ CREATE SEQUENCE unit_seq
     CACHE 1;
 
 
+ALTER TABLE unit_seq OWNER TO nics;
 
 --
--- Name: unit; Type: TABLE; Schema: public; Tablespace: 
+-- Name: unit; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE unit (
@@ -1164,9 +1332,10 @@ CREATE TABLE unit (
 );
 
 
+ALTER TABLE unit OWNER TO nics;
 
 --
--- Name: user; Type: TABLE; Schema: public; Tablespace: 
+-- Name: user; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE "user" (
@@ -1184,9 +1353,10 @@ CREATE TABLE "user" (
 );
 
 
+ALTER TABLE "user" OWNER TO nics;
 
 --
--- Name: user_info; Type: TABLE; Schema: public; Tablespace: 
+-- Name: user_info; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE user_info (
@@ -1207,8 +1377,10 @@ CREATE TABLE user_info (
 );
 
 
+ALTER TABLE user_info OWNER TO nics;
+
 --
--- Name: user_info_ics_position; Type: TABLE; Schema: public; Tablespace: 
+-- Name: user_info_ics_position; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE user_info_ics_position (
@@ -1217,9 +1389,10 @@ CREATE TABLE user_info_ics_position (
 );
 
 
+ALTER TABLE user_info_ics_position OWNER TO nics;
 
 --
--- Name: user_org_seq; Type: SEQUENCE; Schema: public;
+-- Name: user_org_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE user_org_seq
@@ -1230,9 +1403,10 @@ CREATE SEQUENCE user_org_seq
     CACHE 1;
 
 
+ALTER TABLE user_org_seq OWNER TO nics;
 
 --
--- Name: user_seq; Type: SEQUENCE; Schema: public;
+-- Name: user_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE user_seq
@@ -1243,9 +1417,10 @@ CREATE SEQUENCE user_seq
     CACHE 1;
 
 
+ALTER TABLE user_seq OWNER TO nics;
 
 --
--- Name: usersession; Type: TABLE; Schema: public; Tablespace: 
+-- Name: usersession; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE usersession (
@@ -1257,9 +1432,10 @@ CREATE TABLE usersession (
 );
 
 
+ALTER TABLE usersession OWNER TO nics;
 
 --
--- Name: user_session_seq; Type: SEQUENCE; Schema: public;
+-- Name: user_session_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE user_session_seq
@@ -1270,16 +1446,17 @@ CREATE SEQUENCE user_session_seq
     CACHE 1;
 
 
+ALTER TABLE user_session_seq OWNER TO nics;
 
 --
--- Name: user_session_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: user_session_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE user_session_seq OWNED BY usersession.usersessionid;
 
 
 --
--- Name: userfeature; Type: TABLE; Schema: public; Tablespace: 
+-- Name: userfeature; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE userfeature (
@@ -1291,9 +1468,10 @@ CREATE TABLE userfeature (
 );
 
 
+ALTER TABLE userfeature OWNER TO nics;
 
 --
--- Name: userfeature_userfeatureid_seq; Type: SEQUENCE; Schema: public;
+-- Name: userfeature_userfeatureid_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
 
 CREATE SEQUENCE userfeature_userfeatureid_seq
@@ -1304,16 +1482,17 @@ CREATE SEQUENCE userfeature_userfeatureid_seq
     CACHE 1;
 
 
+ALTER TABLE userfeature_userfeatureid_seq OWNER TO nics;
 
 --
--- Name: userfeature_userfeatureid_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: userfeature_userfeatureid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: nics
 --
 
 ALTER SEQUENCE userfeature_userfeatureid_seq OWNED BY userfeature.userfeatureid;
 
 
 --
--- Name: userorg; Type: TABLE; Schema: public; Tablespace: 
+-- Name: userorg; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE userorg (
@@ -1329,9 +1508,10 @@ CREATE TABLE userorg (
 );
 
 
+ALTER TABLE userorg OWNER TO nics;
 
 --
--- Name: userorg_workspace; Type: TABLE; Schema: public; Tablespace: 
+-- Name: userorg_workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE userorg_workspace (
@@ -1343,9 +1523,10 @@ CREATE TABLE userorg_workspace (
 );
 
 
+ALTER TABLE userorg_workspace OWNER TO nics;
 
 --
--- Name: workspace; Type: TABLE; Schema: public; Tablespace: 
+-- Name: workspace; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE TABLE workspace (
@@ -1355,78 +1536,73 @@ CREATE TABLE workspace (
 );
 
 
+ALTER TABLE workspace OWNER TO nics;
 
 --
--- Name: collabroomfeatureid; Type: DEFAULT; Schema: public;
+-- Name: collabroomfeatureid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroomfeature ALTER COLUMN collabroomfeatureid SET DEFAULT nextval('collabroomfeature_collabroomfeatureid_seq'::regclass);
 
 
 --
--- Name: collabroompermissionid; Type: DEFAULT; Schema: public;
+-- Name: collabroompermissionid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroompermission ALTER COLUMN collabroompermissionid SET DEFAULT nextval('collabroom_permission_seq'::regclass);
 
 
 --
--- Name: currentusersessionid; Type: DEFAULT; Schema: public;
+-- Name: currentusersessionid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY currentusersession ALTER COLUMN currentusersessionid SET DEFAULT nextval('current_user_session_seq'::regclass);
 
 
 --
--- Name: document_featureid; Type: DEFAULT; Schema: public;
+-- Name: document_featureid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_feature ALTER COLUMN document_featureid SET DEFAULT nextval('document_feature_document_featureid_seq'::regclass);
 
 
 --
--- Name: featureid; Type: DEFAULT; Schema: public;
+-- Name: featureid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY feature ALTER COLUMN featureid SET DEFAULT nextval('feature_featureid_seq'::regclass);
 
 
 --
--- Name: incidentid; Type: DEFAULT; Schema: public;
+-- Name: incidentid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident ALTER COLUMN incidentid SET DEFAULT nextval('incident_seq'::regclass);
 
 
 --
--- Name: logid; Type: DEFAULT: SChema: public;
---
-ALTER TABLE ONLY log ALTER COLUMN logid SET DEFAULT nextval('log_seq'::regclass);
-
-
---
--- Name: incident_incidenttypeid; Type: DEFAULT; Schema: public;
+-- Name: incident_incidenttypeid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident_incidenttype ALTER COLUMN incident_incidenttypeid SET DEFAULT nextval('incident_incidenttype_seq'::regclass);
 
 
 --
--- Name: userfeatureid; Type: DEFAULT; Schema: public;
+-- Name: userfeatureid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userfeature ALTER COLUMN userfeatureid SET DEFAULT nextval('userfeature_userfeatureid_seq'::regclass);
 
 
 --
--- Name: usersessionid; Type: DEFAULT; Schema: public;
+-- Name: usersessionid; Type: DEFAULT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY usersession ALTER COLUMN usersessionid SET DEFAULT nextval('user_session_seq'::regclass);
 
 
 --
--- Name: assignment_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: assignment_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY assignment
@@ -1434,7 +1610,7 @@ ALTER TABLE ONLY assignment
 
 
 --
--- Name: chat_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: chat_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY chat
@@ -1442,7 +1618,7 @@ ALTER TABLE ONLY chat
 
 
 --
--- Name: collabroom_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: collabroom_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY collabroom
@@ -1450,7 +1626,7 @@ ALTER TABLE ONLY collabroom
 
 
 --
--- Name: collabroomfeature_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: collabroomfeature_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY collabroomfeature
@@ -1458,7 +1634,7 @@ ALTER TABLE ONLY collabroomfeature
 
 
 --
--- Name: collabroompermission_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: collabroompermission_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY collabroompermission
@@ -1466,7 +1642,7 @@ ALTER TABLE ONLY collabroompermission
 
 
 --
--- Name: contact_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: contact_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY contact
@@ -1474,7 +1650,7 @@ ALTER TABLE ONLY contact
 
 
 --
--- Name: contacttype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: contacttype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY contacttype
@@ -1482,7 +1658,7 @@ ALTER TABLE ONLY contacttype
 
 
 --
--- Name: currentusersession_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: currentusersession_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY currentusersession
@@ -1490,7 +1666,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: currentusersession_userid_key; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: currentusersession_userid_key; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY currentusersession
@@ -1498,7 +1674,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: datalayer_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datalayer_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datalayer
@@ -1506,7 +1682,7 @@ ALTER TABLE ONLY datalayer
 
 
 --
--- Name: datalayerfolder_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datalayerfolder_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datalayerfolder
@@ -1514,7 +1690,7 @@ ALTER TABLE ONLY datalayerfolder
 
 
 --
--- Name: datalayerfolder_workspace_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datalayerfolder_workspace_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datalayerfolder_workspace
@@ -1522,7 +1698,7 @@ ALTER TABLE ONLY datalayerfolder_workspace
 
 
 --
--- Name: datalayersource_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datalayersource_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datalayersource
@@ -1530,7 +1706,7 @@ ALTER TABLE ONLY datalayersource
 
 
 --
--- Name: datasource_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datasource_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datasource
@@ -1538,7 +1714,7 @@ ALTER TABLE ONLY datasource
 
 
 --
--- Name: datasourcetype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: datasourcetype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datasourcetype
@@ -1546,7 +1722,7 @@ ALTER TABLE ONLY datasourcetype
 
 
 --
--- Name: document_collabroom_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_collabroom_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document_collabroom
@@ -1554,7 +1730,7 @@ ALTER TABLE ONLY document_collabroom
 
 
 --
--- Name: document_feature_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_feature_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document_feature
@@ -1562,7 +1738,7 @@ ALTER TABLE ONLY document_feature
 
 
 --
--- Name: document_incident_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_incident_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document_incident
@@ -1570,7 +1746,7 @@ ALTER TABLE ONLY document_incident
 
 
 --
--- Name: document_org_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_org_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document_org
@@ -1578,7 +1754,7 @@ ALTER TABLE ONLY document_org
 
 
 --
--- Name: document_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document
@@ -1586,7 +1762,7 @@ ALTER TABLE ONLY document
 
 
 --
--- Name: document_user_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: document_user_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY document_user
@@ -1594,7 +1770,7 @@ ALTER TABLE ONLY document_user
 
 
 --
--- Name: feature_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: feature_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY feature
@@ -1602,7 +1778,7 @@ ALTER TABLE ONLY feature
 
 
 --
--- Name: folder_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: folder_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY folder
@@ -1610,7 +1786,7 @@ ALTER TABLE ONLY folder
 
 
 --
--- Name: form_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: form_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY form
@@ -1618,7 +1794,7 @@ ALTER TABLE ONLY form
 
 
 --
--- Name: formtype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: formtype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY formtype
@@ -1626,7 +1802,7 @@ ALTER TABLE ONLY formtype
 
 
 --
--- Name: gisparametertype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: gisparametertype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY gisparametertype
@@ -1634,7 +1810,7 @@ ALTER TABLE ONLY gisparametertype
 
 
 --
--- Name: ics_position_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: ics_position_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY ics_position
@@ -1642,7 +1818,7 @@ ALTER TABLE ONLY ics_position
 
 
 --
--- Name: image_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: image_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY image
@@ -1650,7 +1826,7 @@ ALTER TABLE ONLY image
 
 
 --
--- Name: incident_incidenttype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: incident_incidenttype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY incident_incidenttype
@@ -1658,7 +1834,7 @@ ALTER TABLE ONLY incident_incidenttype
 
 
 --
--- Name: incident_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: incident_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY incident
@@ -1666,7 +1842,7 @@ ALTER TABLE ONLY incident
 
 
 --
--- Name: incidenttype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: incidenttype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY incidenttype
@@ -1674,7 +1850,7 @@ ALTER TABLE ONLY incidenttype
 
 
 --
--- Name: layerstyle_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: layerstyle_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY datalayerstyle
@@ -1682,7 +1858,7 @@ ALTER TABLE ONLY datalayerstyle
 
 
 --
--- Name: location_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: location_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY location
@@ -1690,11 +1866,19 @@ ALTER TABLE ONLY location
 
 
 --
--- Name: log_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: log_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY log
     ADD CONSTRAINT log_pkey PRIMARY KEY (logid);
+
+
+--
+-- Name: log_workspace_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
+--
+
+ALTER TABLE ONLY log_workspace
+    ADD CONSTRAINT log_workspace_pkey PRIMARY KEY (log_workspace_id);
 
 
 --
@@ -1706,7 +1890,7 @@ ALTER TABLE ONLY logtype
 
 
 --
--- Name: messagearchive_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: messagearchive_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY messagearchive
@@ -1714,7 +1898,7 @@ ALTER TABLE ONLY messagearchive
 
 
 --
--- Name: operational_period_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: operational_period_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY operational_period
@@ -1722,7 +1906,7 @@ ALTER TABLE ONLY operational_period
 
 
 --
--- Name: options_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: options_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY options
@@ -1730,7 +1914,7 @@ ALTER TABLE ONLY options
 
 
 --
--- Name: org_orgtype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: org_orgtype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY org_orgtype
@@ -1738,7 +1922,7 @@ ALTER TABLE ONLY org_orgtype
 
 
 --
--- Name: org_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: org_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY org
@@ -1746,7 +1930,7 @@ ALTER TABLE ONLY org
 
 
 --
--- Name: orgformtype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: orgformtype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY orgformtype
@@ -1754,7 +1938,7 @@ ALTER TABLE ONLY orgformtype
 
 
 --
--- Name: orgtype_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: orgtype_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY orgtype
@@ -1762,7 +1946,7 @@ ALTER TABLE ONLY orgtype
 
 
 --
--- Name: resource_assign_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: resource_assign_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY resource_assign
@@ -1770,7 +1954,7 @@ ALTER TABLE ONLY resource_assign
 
 
 --
--- Name: resource_operational_period_key; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: resource_operational_period_key; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY resource_assign
@@ -1778,7 +1962,7 @@ ALTER TABLE ONLY resource_assign
 
 
 --
--- Name: rootfolder_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: rootfolder_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY rootfolder
@@ -1786,7 +1970,7 @@ ALTER TABLE ONLY rootfolder
 
 
 --
--- Name: seq_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: seq_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY seq
@@ -1794,7 +1978,7 @@ ALTER TABLE ONLY seq
 
 
 --
--- Name: system_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: system_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY nicssystem
@@ -1802,7 +1986,7 @@ ALTER TABLE ONLY nicssystem
 
 
 --
--- Name: systemrole_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: systemrole_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY systemrole
@@ -1810,7 +1994,7 @@ ALTER TABLE ONLY systemrole
 
 
 --
--- Name: systemrole_workspace_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: systemrole_workspace_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY systemrole_workspace
@@ -1818,7 +2002,7 @@ ALTER TABLE ONLY systemrole_workspace
 
 
 --
--- Name: task_assign_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: task_assign_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY task_assign
@@ -1826,7 +2010,7 @@ ALTER TABLE ONLY task_assign
 
 
 --
--- Name: unit_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: unit_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY unit
@@ -1834,7 +2018,7 @@ ALTER TABLE ONLY unit
 
 
 --
--- Name: user_info_ics_position_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: user_info_ics_position_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY user_info_ics_position
@@ -1842,7 +2026,7 @@ ALTER TABLE ONLY user_info_ics_position
 
 
 --
--- Name: user_info_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: user_info_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY user_info
@@ -1850,7 +2034,7 @@ ALTER TABLE ONLY user_info
 
 
 --
--- Name: user_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: user_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY "user"
@@ -1858,7 +2042,7 @@ ALTER TABLE ONLY "user"
 
 
 --
--- Name: userfeature_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: userfeature_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY userfeature
@@ -1866,7 +2050,7 @@ ALTER TABLE ONLY userfeature
 
 
 --
--- Name: userorg_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: userorg_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY userorg
@@ -1874,7 +2058,7 @@ ALTER TABLE ONLY userorg
 
 
 --
--- Name: userorg_workspace_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: userorg_workspace_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY userorg_workspace
@@ -1882,7 +2066,7 @@ ALTER TABLE ONLY userorg_workspace
 
 
 --
--- Name: usersession_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: usersession_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY usersession
@@ -1890,7 +2074,7 @@ ALTER TABLE ONLY usersession
 
 
 --
--- Name: workspace_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: workspace_pkey; Type: CONSTRAINT; Schema: public; Owner: nics; Tablespace: 
 --
 
 ALTER TABLE ONLY workspace
@@ -1898,210 +2082,210 @@ ALTER TABLE ONLY workspace
 
 
 --
--- Name: collabroom_gist; Type: INDEX; Schema: public; Tablespace: 
+-- Name: collabroom_gist; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX collabroom_gist ON collabroom USING gist (bounds);
 
 
 --
--- Name: collabroom_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: collabroom_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX collabroom_usersession ON collabroom USING btree (usersessionid);
 
 
 --
--- Name: feature_gist; Type: INDEX; Schema: public; Tablespace: 
+-- Name: feature_gist; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX feature_gist ON feature USING gist (geometry);
 
 
 --
--- Name: fk_chat_collabroom; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_chat_collabroom; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_chat_collabroom ON chat USING btree (collabroomid);
 
 
 --
--- Name: fk_chat_userorg; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_chat_userorg; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_chat_userorg ON chat USING btree (userorgid);
 
 
 --
--- Name: fk_collabstate_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_collabstate_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_collabstate_usersession ON feature USING btree (usersessionid);
 
 
 --
--- Name: fk_contact_contacttype; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_contact_contacttype; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_contact_contacttype ON contact USING btree (contacttypeid);
 
 
 --
--- Name: fk_contact_user; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_contact_user; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_contact_user ON contact USING btree (userid);
 
 
 --
--- Name: fk_current_usersession_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_current_usersession_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_current_usersession_usersession ON currentusersession USING btree (usersessionid);
 
 
 --
--- Name: fk_datalayer_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_datalayer_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_datalayer_usersession ON datalayer USING btree (usersessionid);
 
 
 --
--- Name: fk_datalayersource_datasource; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_datalayersource_datasource; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_datalayersource_datasource ON datalayersource USING btree (datasourceid);
 
 
 --
--- Name: fk_datalayersource_usersessionid; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_datalayersource_usersessionid; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_datalayersource_usersessionid ON datalayersource USING btree (usersessionid);
 
 
 --
--- Name: fk_form_incidentid; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_form_incidentid; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_form_incidentid ON form USING btree (incidentid);
 
 
 --
--- Name: fk_incident; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_incident; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_incident ON incident_incidenttype USING btree (incidentid);
 
 
 --
--- Name: fk_incident_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_incident_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_incident_usersession ON incident USING btree (usersessionid);
 
 
 --
--- Name: fk_incidenttype; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_incidenttype; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_incidenttype ON incident_incidenttype USING btree (incidenttypeid);
 
 
 --
--- Name: fk_log_logtype; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_log_logtype; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_log_logtype ON log USING btree (logtypeid);
 
 
 --
--- Name: fk_log_usersession; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_log_usersession; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_log_usersession ON log USING btree (usersessionid);
 
 
 --
--- Name: fk_org; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_org; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_org ON org_orgtype USING btree (orgid);
 
 
 --
--- Name: fk_orgtype; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_orgtype; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_orgtype ON org_orgtype USING btree (orgtypeid);
 
 
 --
--- Name: fk_rootfolder_folder; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_rootfolder_folder; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_rootfolder_folder ON rootfolder USING btree (folderid);
 
 
 --
--- Name: fk_userorg_org; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_userorg_org; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_userorg_org ON userorg USING btree (orgid);
 
 
 --
--- Name: fk_userorg_user; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_userorg_user; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_userorg_user ON userorg USING btree (userid);
 
 
 --
--- Name: fk_usersession_userorg; Type: INDEX; Schema: public; Tablespace: 
+-- Name: fk_usersession_userorg; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX fk_usersession_userorg ON usersession USING btree (userorgid);
 
 
 --
--- Name: incident_gist; Type: INDEX; Schema: public; Tablespace: 
+-- Name: incident_gist; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX incident_gist ON incident USING gist (bounds);
 
 
 --
--- Name: incidentid; Type: INDEX; Schema: public; Tablespace: 
+-- Name: incidentid; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX incidentid ON collabroom USING btree (incidentid);
 
 
 --
--- Name: messagearchive_topic_idx; Type: INDEX; Schema: public; Tablespace: 
+-- Name: messagearchive_topic_idx; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE INDEX messagearchive_topic_idx ON messagearchive USING btree (topic);
 
 
 --
--- Name: topic_idx; Type: INDEX; Schema: public; Tablespace: 
+-- Name: topic_idx; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE UNIQUE INDEX topic_idx ON seq USING btree (name);
 
 
 --
--- Name: uname_idx; Type: INDEX; Schema: public; Tablespace: 
+-- Name: uname_idx; Type: INDEX; Schema: public; Owner: nics; Tablespace: 
 --
 
 CREATE UNIQUE INDEX uname_idx ON "user" USING btree (username);
 
 
 --
--- Name: assignment_operational_period_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: assignment_operational_period_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY assignment
@@ -2109,7 +2293,7 @@ ALTER TABLE ONLY assignment
 
 
 --
--- Name: assignment_unit_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: assignment_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY assignment
@@ -2117,7 +2301,7 @@ ALTER TABLE ONLY assignment
 
 
 --
--- Name: chat_collabroomid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: chat_collabroomid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY chat
@@ -2125,7 +2309,7 @@ ALTER TABLE ONLY chat
 
 
 --
--- Name: chat_userorgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: chat_userorgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY chat
@@ -2133,7 +2317,7 @@ ALTER TABLE ONLY chat
 
 
 --
--- Name: collabroom_incidentid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: collabroom_incidentid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroom
@@ -2141,7 +2325,7 @@ ALTER TABLE ONLY collabroom
 
 
 --
--- Name: collabroom_permission_collabroomid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: collabroom_permission_collabroomid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroompermission
@@ -2149,7 +2333,7 @@ ALTER TABLE ONLY collabroompermission
 
 
 --
--- Name: collabroom_permission_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: collabroom_permission_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroompermission
@@ -2157,7 +2341,7 @@ ALTER TABLE ONLY collabroompermission
 
 
 --
--- Name: collabroom_permission_userid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: collabroom_permission_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroompermission
@@ -2165,7 +2349,7 @@ ALTER TABLE ONLY collabroompermission
 
 
 --
--- Name: collabroom_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: collabroom_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroom
@@ -2173,7 +2357,7 @@ ALTER TABLE ONLY collabroom
 
 
 --
--- Name: contact_contacttypeid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: contact_contacttypeid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY contact
@@ -2181,7 +2365,7 @@ ALTER TABLE ONLY contact
 
 
 --
--- Name: contact_userid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: contact_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY contact
@@ -2189,7 +2373,7 @@ ALTER TABLE ONLY contact
 
 
 --
--- Name: currentusersession_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: currentusersession_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY currentusersession
@@ -2197,7 +2381,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: currentusersession_userid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: currentusersession_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY currentusersession
@@ -2205,7 +2389,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: currentusersession_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: currentusersession_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY currentusersession
@@ -2213,7 +2397,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: currentusersession_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: currentusersession_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY currentusersession
@@ -2221,7 +2405,7 @@ ALTER TABLE ONLY currentusersession
 
 
 --
--- Name: datalayerfolder_datalayerid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: datalayerfolder_datalayerid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayerfolder
@@ -2229,7 +2413,7 @@ ALTER TABLE ONLY datalayerfolder
 
 
 --
--- Name: datalayerfolder_folderid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: datalayerfolder_folderid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayerfolder
@@ -2237,7 +2421,7 @@ ALTER TABLE ONLY datalayerfolder
 
 
 --
--- Name: datlayerfolder_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: datlayerfolder_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayerfolder_workspace
@@ -2245,7 +2429,7 @@ ALTER TABLE ONLY datalayerfolder_workspace
 
 
 --
--- Name: documentid; Type: FK CONSTRAINT; Schema: public;
+-- Name: documentid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_feature
@@ -2253,7 +2437,7 @@ ALTER TABLE ONLY document_feature
 
 
 --
--- Name: feature_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: feature_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY feature
@@ -2261,7 +2445,7 @@ ALTER TABLE ONLY feature
 
 
 --
--- Name: featureid; Type: FK CONSTRAINT; Schema: public;
+-- Name: featureid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_feature
@@ -2269,7 +2453,7 @@ ALTER TABLE ONLY document_feature
 
 
 --
--- Name: fk335cd11b9580bd29; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk335cd11b9580bd29; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document
@@ -2277,7 +2461,7 @@ ALTER TABLE ONLY document
 
 
 --
--- Name: fk335cd11bb62cd586; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk335cd11bb62cd586; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document
@@ -2285,7 +2469,7 @@ ALTER TABLE ONLY document
 
 
 --
--- Name: fk335cd11bc9b72217; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk335cd11bc9b72217; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document
@@ -2293,7 +2477,7 @@ ALTER TABLE ONLY document
 
 
 --
--- Name: fk514b80c17c70f16; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk514b80c17c70f16; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_collabroom
@@ -2301,7 +2485,7 @@ ALTER TABLE ONLY document_collabroom
 
 
 --
--- Name: fk514b80c5ad9cac3; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk514b80c5ad9cac3; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_collabroom
@@ -2309,7 +2493,7 @@ ALTER TABLE ONLY document_collabroom
 
 
 --
--- Name: fk57743ebfdb88f93; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk57743ebfdb88f93; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayerfolder_workspace
@@ -2317,7 +2501,7 @@ ALTER TABLE ONLY datalayerfolder_workspace
 
 
 --
--- Name: fk5e824c6f5ad9cac3; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk5e824c6f5ad9cac3; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_user
@@ -2325,7 +2509,7 @@ ALTER TABLE ONLY document_user
 
 
 --
--- Name: fk5e824c6fe105c53c; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk5e824c6fe105c53c; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_user
@@ -2333,7 +2517,7 @@ ALTER TABLE ONLY document_user
 
 
 --
--- Name: fk7602bec2b62cd586; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk7602bec2b62cd586; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayersource
@@ -2341,7 +2525,7 @@ ALTER TABLE ONLY datalayersource
 
 
 --
--- Name: fk7602bec2c9b72217; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk7602bec2c9b72217; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayersource
@@ -2349,7 +2533,7 @@ ALTER TABLE ONLY datalayersource
 
 
 --
--- Name: fk82737045af27c0b; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk82737045af27c0b; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datasource
@@ -2357,7 +2541,7 @@ ALTER TABLE ONLY datasource
 
 
 --
--- Name: fk97d1b3765ad9cac3; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk97d1b3765ad9cac3; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_incident
@@ -2365,7 +2549,7 @@ ALTER TABLE ONLY document_incident
 
 
 --
--- Name: fk97d1b376ba39b40a; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk97d1b376ba39b40a; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_incident
@@ -2373,7 +2557,7 @@ ALTER TABLE ONLY document_incident
 
 
 --
--- Name: fk_collabroomfeature_collabroomid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_collabroomfeature_collabroomid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroomfeature
@@ -2381,7 +2565,7 @@ ALTER TABLE ONLY collabroomfeature
 
 
 --
--- Name: fk_collabroomfeature_featureid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_collabroomfeature_featureid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY collabroomfeature
@@ -2389,7 +2573,7 @@ ALTER TABLE ONLY collabroomfeature
 
 
 --
--- Name: fk_folderid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_folderid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY orgfolder
@@ -2397,7 +2581,7 @@ ALTER TABLE ONLY orgfolder
 
 
 --
--- Name: fk_orgid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_orgid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY orgfolder
@@ -2405,7 +2589,7 @@ ALTER TABLE ONLY orgfolder
 
 
 --
--- Name: fk_systemroleid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_systemroleid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY messagepermissions
@@ -2413,7 +2597,7 @@ ALTER TABLE ONLY messagepermissions
 
 
 --
--- Name: fk_userfeature_featureid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_userfeature_featureid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userfeature
@@ -2421,7 +2605,7 @@ ALTER TABLE ONLY userfeature
 
 
 --
--- Name: fk_userfeature_userid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_userfeature_userid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userfeature
@@ -2429,7 +2613,7 @@ ALTER TABLE ONLY userfeature
 
 
 --
--- Name: fk_userfeature_workspaceid; Type: FK CONSTRAINT; Schema: public;
+-- Name: fk_userfeature_workspaceid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userfeature
@@ -2437,7 +2621,7 @@ ALTER TABLE ONLY userfeature
 
 
 --
--- Name: fka835a9c05ad9cac3; Type: FK CONSTRAINT; Schema: public;
+-- Name: fka835a9c05ad9cac3; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_org
@@ -2445,7 +2629,7 @@ ALTER TABLE ONLY document_org
 
 
 --
--- Name: fka835a9c072480538; Type: FK CONSTRAINT; Schema: public;
+-- Name: fka835a9c072480538; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY document_org
@@ -2453,7 +2637,7 @@ ALTER TABLE ONLY document_org
 
 
 --
--- Name: fkb45d1c6e18157bd3; Type: FK CONSTRAINT; Schema: public;
+-- Name: fkb45d1c6e18157bd3; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY folder
@@ -2461,7 +2645,7 @@ ALTER TABLE ONLY folder
 
 
 --
--- Name: fkc9b2ebd09580bd29; Type: FK CONSTRAINT; Schema: public;
+-- Name: fkc9b2ebd09580bd29; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY rootfolder
@@ -2469,7 +2653,7 @@ ALTER TABLE ONLY rootfolder
 
 
 --
--- Name: fkeb061fe76a7aefad; Type: FK CONSTRAINT; Schema: public;
+-- Name: fkeb061fe76a7aefad; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayer
@@ -2477,7 +2661,7 @@ ALTER TABLE ONLY datalayer
 
 
 --
--- Name: fkeb061fe7b62cd586; Type: FK CONSTRAINT; Schema: public;
+-- Name: fkeb061fe7b62cd586; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayer
@@ -2485,7 +2669,7 @@ ALTER TABLE ONLY datalayer
 
 
 --
--- Name: folder_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: folder_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY folder
@@ -2493,7 +2677,7 @@ ALTER TABLE ONLY folder
 
 
 --
--- Name: form_formtypeid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: form_formtypeid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY form
@@ -2501,7 +2685,7 @@ ALTER TABLE ONLY form
 
 
 --
--- Name: form_incidentid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: form_incidentid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY form
@@ -2509,7 +2693,7 @@ ALTER TABLE ONLY form
 
 
 --
--- Name: form_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: form_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY form
@@ -2517,7 +2701,7 @@ ALTER TABLE ONLY form
 
 
 --
--- Name: image_incident_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: image_incident_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY image
@@ -2525,7 +2709,7 @@ ALTER TABLE ONLY image
 
 
 --
--- Name: image_location_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: image_location_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY image
@@ -2533,7 +2717,7 @@ ALTER TABLE ONLY image
 
 
 --
--- Name: incident_incidenttype_incidentid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: incident_incidenttype_incidentid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident_incidenttype
@@ -2541,7 +2725,7 @@ ALTER TABLE ONLY incident_incidenttype
 
 
 --
--- Name: incident_incidenttype_incidenttypeid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: incident_incidenttype_incidenttypeid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident_incidenttype
@@ -2549,7 +2733,7 @@ ALTER TABLE ONLY incident_incidenttype
 
 
 --
--- Name: incident_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: incident_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident
@@ -2557,7 +2741,7 @@ ALTER TABLE ONLY incident
 
 
 --
--- Name: incident_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: incident_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident
@@ -2565,7 +2749,7 @@ ALTER TABLE ONLY incident
 
 
 --
--- Name: layerstyle_datalayerid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: layerstyle_datalayerid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY datalayerstyle
@@ -2573,11 +2757,19 @@ ALTER TABLE ONLY datalayerstyle
 
 
 --
--- Name: location_user_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: location_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY location
     ADD CONSTRAINT location_user_id_fkey FOREIGN KEY (user_id) REFERENCES user_info(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: log_logid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
+--
+
+ALTER TABLE ONLY log_workspace
+    ADD CONSTRAINT log_logid_fkey FOREIGN KEY (logid) REFERENCES log(logid);
 
 
 --
@@ -2589,11 +2781,19 @@ ALTER TABLE ONLY log
 
 
 --
--- Name: log_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: log_usersessionid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY log
     ADD CONSTRAINT log_usersessionid_fkey FOREIGN KEY (usersessionid) REFERENCES usersession(usersessionid);
+
+
+--
+-- Name: log_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
+--
+
+ALTER TABLE ONLY log_workspace
+    ADD CONSTRAINT log_workspaceid_fkey FOREIGN KEY (workspaceid) REFERENCES workspace(workspaceid);
 
 
 --
@@ -2605,7 +2805,7 @@ ALTER TABLE ONLY operational_period
 
 
 --
--- Name: org_orgtype_orgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: org_orgtype_orgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY org_orgtype
@@ -2613,7 +2813,7 @@ ALTER TABLE ONLY org_orgtype
 
 
 --
--- Name: org_orgtype_orgtypeid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: org_orgtype_orgtypeid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY org_orgtype
@@ -2621,7 +2821,7 @@ ALTER TABLE ONLY org_orgtype
 
 
 --
--- Name: orgformtype_fkey_formtypeid; Type: FK CONSTRAINT; Schema: public;
+-- Name: orgformtype_fkey_formtypeid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY orgformtype
@@ -2629,7 +2829,7 @@ ALTER TABLE ONLY orgformtype
 
 
 --
--- Name: orgformtype_fkey_orgid; Type: FK CONSTRAINT; Schema: public;
+-- Name: orgformtype_fkey_orgid; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY orgformtype
@@ -2637,7 +2837,7 @@ ALTER TABLE ONLY orgformtype
 
 
 --
--- Name: parent_incidentid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: parent_incidentid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY incident
@@ -2645,7 +2845,7 @@ ALTER TABLE ONLY incident
 
 
 --
--- Name: resource_assign_user_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: resource_assign_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY resource_assign
@@ -2653,7 +2853,7 @@ ALTER TABLE ONLY resource_assign
 
 
 --
--- Name: resource_assignment_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: resource_assignment_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY resource_assign
@@ -2661,7 +2861,7 @@ ALTER TABLE ONLY resource_assign
 
 
 --
--- Name: system_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: system_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY system_workspace
@@ -2669,7 +2869,7 @@ ALTER TABLE ONLY system_workspace
 
 
 --
--- Name: systemrole_userorgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: systemrole_userorgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY systemrole_workspace
@@ -2677,7 +2877,7 @@ ALTER TABLE ONLY systemrole_workspace
 
 
 --
--- Name: systemrole_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: systemrole_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY systemrole_workspace
@@ -2685,7 +2885,7 @@ ALTER TABLE ONLY systemrole_workspace
 
 
 --
--- Name: task_assign_form_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: task_assign_form_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY task_assign
@@ -2693,7 +2893,7 @@ ALTER TABLE ONLY task_assign
 
 
 --
--- Name: task_assignment_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: task_assignment_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY task_assign
@@ -2701,7 +2901,7 @@ ALTER TABLE ONLY task_assign
 
 
 --
--- Name: unit_collabroom_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: unit_collabroom_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY unit
@@ -2709,7 +2909,7 @@ ALTER TABLE ONLY unit
 
 
 --
--- Name: unit_incident_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: unit_incident_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY unit
@@ -2717,17 +2917,15 @@ ALTER TABLE ONLY unit
 
 
 --
--- Name: user_info_ics_position_code_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: user_info_ics_position_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY user_info_ics_position
     ADD CONSTRAINT user_info_ics_position_code_fkey FOREIGN KEY (code) REFERENCES ics_position(code) ON DELETE CASCADE;
 
 
-
-
 --
--- Name: user_info_ics_position_user_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: user_info_ics_position_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY user_info_ics_position
@@ -2735,7 +2933,7 @@ ALTER TABLE ONLY user_info_ics_position
 
 
 --
--- Name: user_info_user_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: user_info_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY user_info
@@ -2743,7 +2941,7 @@ ALTER TABLE ONLY user_info
 
 
 --
--- Name: userorg_orgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: userorg_orgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userorg
@@ -2751,7 +2949,7 @@ ALTER TABLE ONLY userorg
 
 
 --
--- Name: userorg_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: userorg_systemroleid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userorg
@@ -2759,7 +2957,7 @@ ALTER TABLE ONLY userorg
 
 
 --
--- Name: userorg_userid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: userorg_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userorg
@@ -2767,7 +2965,7 @@ ALTER TABLE ONLY userorg
 
 
 --
--- Name: userorg_userorgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: userorg_userorgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userorg_workspace
@@ -2775,7 +2973,7 @@ ALTER TABLE ONLY userorg_workspace
 
 
 --
--- Name: userorg_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: userorg_workspaceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY userorg_workspace
@@ -2783,7 +2981,7 @@ ALTER TABLE ONLY userorg_workspace
 
 
 --
--- Name: usersession_userorgid_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: usersession_userorgid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY usersession
@@ -2791,20 +2989,12 @@ ALTER TABLE ONLY usersession
 
 
 --
--- Name: workspace_id_fkey; Type: FK CONSTRAINT; Schema: public;
+-- Name: workspace_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
 --
 
 ALTER TABLE ONLY system_workspace
     ADD CONSTRAINT workspace_id_fkey FOREIGN KEY (workspaceid) REFERENCES workspace(workspaceid);
 
---
--- Name: workspace_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: nics
---
-
-ALTER TABLE ONLY log
-    ADD CONSTRAINT log_workspace_fkey FOREIGN KEY (workspaceid) REFERENCES workspace(workspaceid);
-
-ALTER TABLE ONLY log ALTER COLUMN logid SET DEFAULT nextval('log_seq'::regclass);
 
 --
 -- Name: public; Type: ACL; Schema: -; Owner: postgres

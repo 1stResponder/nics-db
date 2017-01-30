@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+# Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,28 +29,17 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-set -e;
 
 if [ "$1" == "" ]
 then
-  echo "You must specify a database name to prepend to the data databases (usually the same name passed into the create_db.sh script)."
+  echo "You must specify a database name to create and populate."
   exit 1
 fi
 
 # create the postgis enabled databases
-
-psql -c "create database $1_datalayers_postgis"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1_datalayers_postgis"
-
-
-psql -c "create database $1_shapefiles"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1_shapefiles"
-
-psql -c "create database $1_datafeeds"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1_datafeeds"
+createdb -T postgistemplate "$1.datalayers_postgis"
+createdb -T postgistemplate "$1.shapefiles"
+createdb -T postgistemplate "$1.datafeeds"
 
 # create baseline schema for datalayers_postgis database
-psql -f baseline_datalayers.sql "$1_datalayers_postgis"
-
-# create default mdt schema and associated view
-psql -f baseline_datafeeds.sql "$1_datafeeds"
+psql -f datalayers_baseline.sql "$1.datalayers_postgis"

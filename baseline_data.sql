@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+-- Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 -- All rights reserved.
 --
 -- Redistribution and use in source and binary forms, with or without
@@ -28,6 +28,11 @@
 -- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --
 
+--
+-- PostgreSQL database dump
+-- Created with pg_dump -t formtype -t incidenttype -t messagepermissions -t orgtype  -t systemrole -t contacttype -t datasourcetype -t logtype -a --inserts dev.sacore > /tmp/baseline_data.sql
+--
+
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
@@ -37,7 +42,7 @@ SET client_min_messages = warning;
 SET search_path = public, pg_catalog;
 
 --
--- Data for Name: contacttype; Type: TABLE DATA; Schema: public;
+-- Data for Name: contacttype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO contacttype VALUES (0, 'email');
@@ -49,7 +54,7 @@ INSERT INTO contacttype VALUES (5, 'phone_other');
 
 
 --
--- Data for Name: datasourcetype; Type: TABLE DATA; Schema: public;
+-- Data for Name: datasourcetype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO datasourcetype VALUES ('wms', 1);
@@ -67,10 +72,11 @@ INSERT INTO datasourcetype VALUES ('arcgiscache', 12);
 INSERT INTO datasourcetype VALUES ('gpx', 13);
 INSERT INTO datasourcetype VALUES ('bing', 14);
 INSERT INTO datasourcetype VALUES ('geojson', 15);
+INSERT INTO datasourcetype VALUES ('image', 16);
 
 
 --
--- Data for Name: formtype; Type: TABLE DATA; Schema: public;
+-- Data for Name: formtype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'ROC');
@@ -85,13 +91,12 @@ INSERT INTO formtype VALUES (nextVal('form_seq'), 'TASK');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'RESREQ');
 INSERT INTO formtype VALUES (nextVal('form_seq'), '9110');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'DMGRPT');
+INSERT INTO formtype VALUES (nextVal('form_seq'), 'UXO');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'SVRRPT');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'AGRRPT');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'MITAM');
-INSERT INTO formtype VALUES (nextVal('form_seq'), 'WR');
-
 --
--- Data for Name: incidenttype; Type: TABLE DATA; Schema: public;
+-- Data for Name: incidenttype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO incidenttype VALUES (1, 'Fire (Wildland)');
@@ -116,7 +121,7 @@ INSERT INTO incidenttype VALUES (19, 'Flood');
 
 
 --
--- Data for Name: logtype; Type: TABLE DATA; Schema: public;
+-- Data for Name: logtype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO logtype VALUES (0, 'announcement');
@@ -124,7 +129,7 @@ INSERT INTO logtype VALUES (1, 'alert');
 
 
 --
--- Data for Name: systemrole; Type: TABLE DATA; Schema: public;
+-- Data for Name: systemrole; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO systemrole VALUES (0, 'super');
@@ -135,7 +140,7 @@ INSERT INTO systemrole VALUES (4, 'admin');
 
 
 --
--- Data for Name: messagepermissions; Type: TABLE DATA; Schema: public;
+-- Data for Name: messagepermissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO messagepermissions VALUES (0, 'announcement'),(1, 'announcement'),(2, 'announcement'),(3, 'announcement'),(4, 'announcement');
@@ -171,7 +176,7 @@ INSERT INTO messagepermissions VALUES (0, 'updateorganization'),(4, 'updateorgan
 INSERT INTO messagepermissions VALUES (0, 'updateuser'),(4, 'updateuser');
 
 --
--- Data for Name: orgtype; Type: TABLE DATA; Schema: public;
+-- Data for Name: orgtype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO orgtype VALUES (0, 'Fire/Rescue');

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+# Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,6 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-set -e;
 
 if [ "$1" == "" ]
 then
@@ -37,25 +36,12 @@ then
   exit 1
 fi
 
-if [ "$2" == "" ]
-then
-  echo "You must specify a database user to create the schema with."
-  exit 1
-fi
-
-
 # create the database
 psql -c "create database $1"
 
-# check postgis extensions
-psql -c "CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;" -d "$1"
-psql -c "COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language'" -d "$1"
-psql -c "CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;" -d "$1"
-psql -c "COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions'" -d "$1"
-
 # now create baseline schema and insert baseline data
-psql -f baseline.sql "$1" "$2"
-psql -f baseline_data.sql "$1" "$2"
+psql -f baseline.sql "$1"
+psql -f baseline_data.sql "$1"
 
 # now execute incremental change scripts with:
 # psql -f <script_name> "$1"
