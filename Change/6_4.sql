@@ -13,7 +13,7 @@ CREATE TABLE orgcap (
     capid integer NOT NULL,
     activeweb boolean DEFAULT true NOT NULL,
     activemobile boolean DEFAULT false NOT NULL,
-    lastupdated timestamp without time zone DEFAULT now() NOT NULL,
+    lastupdate timestamp without time zone DEFAULT now() NOT NULL,
     PRIMARY KEY(orgcapid)
 );
 
