@@ -72,7 +72,6 @@ INSERT INTO datasourcetype VALUES ('arcgiscache', 12);
 INSERT INTO datasourcetype VALUES ('gpx', 13);
 INSERT INTO datasourcetype VALUES ('bing', 14);
 INSERT INTO datasourcetype VALUES ('geojson', 15);
-INSERT INTO datasourcetype VALUES ('image', 16);
 
 
 --
@@ -95,6 +94,8 @@ INSERT INTO formtype VALUES (nextVal('form_seq'), 'UXO');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'SVRRPT');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'AGRRPT');
 INSERT INTO formtype VALUES (nextVal('form_seq'), 'MITAM');
+INSERT INTO formtype VALUES (nextVal('form_seq'), 'WR');
+
 --
 -- Data for Name: incidenttype; Type: TABLE DATA; Schema: public; Owner: postgres
 --

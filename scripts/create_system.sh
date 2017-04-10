@@ -29,6 +29,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Tells the script to exit on error, that way subsequent sql won't get run if a previous step failed
+set -e;
 
 if [ "$1" == "" ]
 then

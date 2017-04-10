@@ -611,19 +611,6 @@ CREATE TABLE form (
 
 ALTER TABLE form OWNER TO nics;
 
-CREATE SEQUENCE formid_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-ALTER TABLE formid_seq OWNER TO nics;
-
-ALTER SEQUENCE formid_seq OWNED BY form.formid;
-
-ALTER TABLE ONLY form ALTER COLUMN formid SET DEFAULT nextval('formid_seq'::regclass);
-
 --
 -- Name: form_seq; Type: SEQUENCE; Schema: public; Owner: nics
 --
@@ -1124,25 +1111,11 @@ ALTER TABLE org_seq OWNER TO nics;
 CREATE TABLE orgfolder (
     orgfolderid integer NOT NULL,
     orgid integer NOT NULL,
-    folderid character varying(250) NOT NULL,
-    PRIMARY KEY(orgfolderid)
+    folderid character varying(250) NOT NULL
 );
 
 
 ALTER TABLE orgfolder OWNER TO nics;
-
-CREATE SEQUENCE orgfolderid_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-ALTER TABLE orgfolderid_seq OWNER TO nics;
-
-ALTER SEQUENCE orgfolderid_seq OWNED BY orgfolder.orgfolderid;
-
-ALTER TABLE ONLY orgfolder ALTER COLUMN orgfolderid SET DEFAULT nextval('orgfolderid_seq'::regclass);
 
 --
 -- Name: orgformtype; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
@@ -1231,25 +1204,11 @@ ALTER TABLE seq OWNER TO nics;
 CREATE TABLE system_workspace (
     system_workspace_id integer NOT NULL,
     systemid integer NOT NULL,
-    workspaceid integer NOT NULL,
-    PRIMARY KEY(system_workspace_id)
+    workspaceid integer NOT NULL
 );
-
 
 ALTER TABLE system_workspace OWNER TO nics;
 
-CREATE SEQUENCE system_workspace_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-ALTER TABLE system_workspace_id_seq OWNER TO nics;
-
-ALTER SEQUENCE system_workspace_id_seq OWNED BY system_workspace.system_workspace_id;
-
-ALTER TABLE ONLY system_workspace ALTER COLUMN system_workspace_id SET DEFAULT nextval('system_workspace_id_seq'::regclass);
 
 --
 -- Name: systemrole; Type: TABLE; Schema: public; Owner: nics; Tablespace: 
@@ -1581,7 +1540,13 @@ ALTER TABLE ONLY incident ALTER COLUMN incidentid SET DEFAULT nextval('incident_
 
 
 --
--- Name: incident_incidenttypeid; Type: DEFAULT; Schema: public; Owner: nics
+-- Name: logid; Type: DEFAULT: SChema: public;
+--
+ALTER TABLE ONLY log ALTER COLUMN logid SET DEFAULT nextval('log_seq'::regclass);
+
+
+--
+-- Name: incident_incidenttypeid; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY incident_incidenttype ALTER COLUMN incident_incidenttypeid SET DEFAULT nextval('incident_incidenttype_seq'::regclass);
@@ -2922,6 +2887,8 @@ ALTER TABLE ONLY unit
 
 ALTER TABLE ONLY user_info_ics_position
     ADD CONSTRAINT user_info_ics_position_code_fkey FOREIGN KEY (code) REFERENCES ics_position(code) ON DELETE CASCADE;
+
+
 
 
 --
