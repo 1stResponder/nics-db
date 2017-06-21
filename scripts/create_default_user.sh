@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+# Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -33,33 +33,26 @@ set -e;
 
 if [ "$1" == "" ]
 then
-  echo "You must specify a database name to prepend to the data databases."
+  echo "You must specify a username name to create and populate."
   exit 1
 fi
 
 if [ "$2" == "" ]
 then
-  echo "You must specify a username name to create and populate."
+  echo "You must specify an organization's id."
   exit 1
 fi
 
 if [ "$3" == "" ]
 then
-  echo "You must specify an organization's id."
-  exit 1
-fi
-
-if [ "$4" == "" ]
-then
   echo "You must specify a workspace id"
   exit 1
 fi
 
-# create the default user
-psql -c "INSERT INTO \"user\" VALUES ((select nextval('user_seq')), '$2', 'NQg1uTRTu6Q7vvZA/j+OXDafTZw=', 'Default', 'User', now(), true, now(), '\x1cf09e162a9b3bbe20e7c0aaffec9e4d','t',now())" $1
-psql -c "INSERT INTO userorg VALUES ((select nextval('user_org_seq')), (select last_value from user_seq), '$3', 0, now(), NULL, '', '', '')" $1
-psql -c "INSERT INTO userorg_workspace VALUES ($4, (select last_value from user_org_seq), (select nextval('hibernate_sequence')), 't')" $1
+# create the database
+psql -c "INSERT INTO \"user\" VALUES ((select nextval('user_seq')), '$1', 'NQg1uTRTu6Q7vvZA/j+OXDafTZw=', 'Default', 'User', now(), true, now(), '\x1cf09e162a9b3bbe20e7c0aaffec9e4d','t',now())" nics
+psql -c "INSERT INTO userorg VALUES ((select nextval('user_org_seq')), (select last_value from user_seq), '$2', 0, now(), NULL, '', '', '')" nics
+psql -c "INSERT INTO userorg_workspace VALUES ($3, (select last_value from user_org_seq), (select nextval('hibernate_sequence')), 't')" nics
 
-# Add default usersession for this default user. Required for other scripts where a usersessionid is required before 
-# the system has been used.
-psql -c "INSERT INTO usersession values((select nextval('user_session_seq')), (select last_value from user_org_seq), 'default-session-id', now(), now())" $1
+
+

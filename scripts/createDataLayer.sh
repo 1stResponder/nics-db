@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+# Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -39,8 +39,8 @@ psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES (2,'
 psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES (3,'371D4DE7-10BC-462B-81C2-4199C332BBEF','Weather',1)" nics
 psql -c "INSERT INTO rootfolder(rootid,folderid,tabname,workspaceid) VALUES (4,'3103D8FC-990F-4EF1-9D0E-F3490A05A0EB','Tracking',1)" nics
 
-psql -c "INSERT INTO datalayersource(created, datalayersourceid,datasourceid,refreshrate,usersessionid) VALUES (now(),'0b79bd02-bf28-494d-aa2f-f2ce858d9db8','D09B9B86-008A-4032-A881-60CCF4A50916',0,1)" nics
-psql -c "INSERT INTO datalayersource(created,datalayersourceid,datasourceid,refreshrate,usersessionid) VALUES (now(),'62352220-c0f9-4652-a412-28e6b2fdaa95','D09B9B86-008A-4032-A881-60CCF4A50916',0,1)" nics
+psql -c "INSERT INTO datalayersource(created, datalayersourceid,datasourceid,refreshrate,usersessionid) VALUES (now(),'0b79bd02-bf28-494d-aa2f-f2ce858d9db8','AAAAAAA-AD76-439D-BEB5-C019EB6553A1',0,1)" nics
+psql -c "INSERT INTO datalayersource(created,datalayersourceid,datasourceid,refreshrate,usersessionid) VALUES (now(),'62352220-c0f9-4652-a412-28e6b2fdaa95','AAAAAAA-AD76-439D-BEB5-C019EB6553A1',0,1)" nics
 
 psql -c "INSERT INTO datalayer(usersessionid,created,datalayerid,baselayer,datalayersourceid,displayname,globalview) VALUES (1,now(),'c09cc1e1-1d69-4b49-9f30-683d55213ed6','t','0b79bd02-bf28-494d-aa2f-f2ce858d9db8','Data Legend','t')" nics
 psql -c "INSERT INTO datalayer(usersessionid,created,datalayerid,baselayer,datalayersourceid,displayname,globalview) VALUES (1,now(),'16d3c7e8-dfa4-42aa-a25e-4c9dd01a0a75','t','62352220-c0f9-4652-a412-28e6b2fdaa95','Weather Legend','t')" nics

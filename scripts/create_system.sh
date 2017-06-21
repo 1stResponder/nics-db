@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2008-2016, Massachusetts Institute of Technology (MIT)
+# Copyright (c) 2008-2015, Massachusetts Institute of Technology (MIT)
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -34,25 +34,19 @@ set -e;
 
 if [ "$1" == "" ]
 then
-  echo "You must specify a database."
-  exit 1
-fi
-
-if [ "$2" == "" ]
-then
   echo "You must specify a system name."
   exit 1
 fi
 
 if [ "$3" == "" ]
 then
-  echo "You must specify a short system description."
+  echo "You must specify a system id"
   exit 1
 fi
 
 if [ "$4" == "" ]
 then
-  echo "You must specify a system id"
+  echo "You must specify a workspace name"
   exit 1
 fi
 
@@ -62,16 +56,10 @@ then
   exit 1
 fi
 
-# Check to see if the workspaceid specified exists 
-OUTPUT=$(psql -c "select workspaceid from workspace where workspaceid=$5" $1);
-if [[ $OUTPUT == *"0 rows"* ]]
-then
-        echo "The workspace id you specified does not exist: $5";
-        exit 1;
-fi
 
 # a system with a new workspace
-psql -c "INSERT INTO nicssystem VALUES ($4, '$2', '$3', true)" $1;
-psql -c "INSERT INTO system_workspace VALUES ((select nextval('hibernate_sequence')), $4, $5)" $1
+psql -c "INSERT INTO nicssystem VALUES ($3, '$1', '$2', true)" nics
+psql -c "INSERT INTO workspace VALUES ($5, '$4', true)" nics
+psql -c "INSERT INTO system_workspace VALUES ((select nextval('hibernate_sequence')), $3, $5)" nics
 
 
